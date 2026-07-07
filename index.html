@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Evaluación de Créditos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>🏦 Sistema de Evaluación de Créditos</h1>
+    
+    <p>Ingrese la información del solicitante</p>
+
+    <form action="/predecir" method="POST">
+
+        <div class="grupo">
+            <label>Edad</label>
+            <input type="number" name="age" placeholder="Ej. 35" required>
+        </div>
+
+        <div class="grupo">
+            <label>Años de Experiencia</label>
+            <input type="number" name="experience" placeholder="Ej. 10" required>
+        </div>
+
+        <div class="grupo">
+            <label>Ingreso Anual ($)</label>
+            <input type="number" name="income" placeholder="Ej. 85000" required>
+        </div>
+
+        <div class="grupo">
+            <label>Número de Integrantes de la Familia</label>
+            <input type="number" name="family" min="1" max="6" required>
+        </div>
+
+        <div class="grupo">
+            <label>Gasto Promedio con Tarjeta (CCAvg)</label>
+            <input type="number" step="0.1" name="ccavg" placeholder="Ej. 2.5" required>
+        </div>
+
+        <div class="grupo">
+            <label>Nivel de Educación</label>
+
+            <select name="education" required>
+                <option value="">Seleccione</option>
+                <option value="1">Licenciatura</option>
+                <option value="2">Maestría</option>
+                <option value="3">Posgrado</option>
+            </select>
+
+        </div>
+
+        <div class="grupo">
+            <label>Hipoteca ($)</label>
+            <input type="number" name="mortgage" placeholder="Ej. 120000" required>
+        </div>
+
+        <div class="grupo">
+            <label>¿Tiene cuenta de inversiones?</label>
+
+            <select name="securities" required>
+                <option value="">Seleccione</option>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+        </div>
+
+        <div class="grupo">
+            <label>¿Tiene Cuenta CD?</label>
+
+            <select name="cd" required>
+                <option value="">Seleccione</option>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+        </div>
+
+        <div class="grupo">
+            <label>¿Utiliza Banca en Línea?</label>
+
+            <select name="online" required>
+                <option value="">Seleccione</option>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+        </div>
+
+        <div class="grupo">
+            <label>¿Tiene Tarjeta de Crédito?</label>
+
+            <select name="creditcard" required>
+                <option value="">Seleccione</option>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+        </div>
+
+        <button type="submit">
+            Evaluar Solicitud
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

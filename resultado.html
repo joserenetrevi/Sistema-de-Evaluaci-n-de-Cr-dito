@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Evaluación</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .resultado-box{
+
+            width:500px;
+            margin:auto;
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+        }
+
+        .estado{
+
+            font-size:40px;
+            font-weight:bold;
+            margin:25px 0;
+
+        }
+
+        .porcentaje{
+
+            font-size:25px;
+            margin-bottom:30px;
+
+        }
+
+        .boton{
+
+            display:inline-block;
+            text-decoration:none;
+            background:#004e92;
+            color:white;
+            padding:15px 30px;
+            border-radius:10px;
+            transition:.3s;
+
+        }
+
+        .boton:hover{
+
+            background:#0066cc;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="resultado-box">
+
+    <h1>🏦 Resultado de la Evaluación</h1>
+
+    {% if resultado == "APROBADO" %}
+     <h2 class="estado aprobado">
+    {{ resultado }} </h2>
+
+{% else %}
+
+   <h2 class="estado rechazado">
+    {{ resultado }}</h2>
+{% endif %}
+
+    <div class="porcentaje">
+
+        <strong>Probabilidad del modelo:</strong>
+
+        <br><br>
+
+        {{ porcentaje }}%
+
+    </div>
+
+    {% if resultado == "APROBADO" %}
+
+        <h3 style="color:green;">
+            ✔ El cliente cumple con los requisitos para obtener el préstamo.
+        </h3>
+
+    {% else %}
+
+        <h3 style="color:red;">
+            ✖ El cliente no cumple con los requisitos para obtener el préstamo.
+        </h3>
+
+    {% endif %}
+
+    <br><br>
+
+    <a href="/" class="boton">
+        Nueva Evaluación
+    </a>
+
+</div>
+
+</body>
+</html>
